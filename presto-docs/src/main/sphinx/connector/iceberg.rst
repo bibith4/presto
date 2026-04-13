@@ -3026,6 +3026,14 @@ by using :doc:`/sql/alter-materialized-view`; properties not specified in the
        session property. Requires Iceberg V3 row lineage; V2 tables fall back to
        unbounded refresh.
      - Yes
+   * - .. _mv-prop-use-timestamp-based-staleness:
+
+       ``use_timestamp_based_staleness``
+     - Enables timestamp-based staleness detection for materialized views from non-Iceberg
+       tables where snapshot comparison is not feasible. Accepts boolean values: ``true``
+       or ``false``. This mode is automatically enabled when the engine-level property
+       ``cross_catalog_materialized_views_enabled`` is set to ``true``.
+     - No
 
 The storage table inherits standard Iceberg table properties for partitioning, sorting, and file format.
 
